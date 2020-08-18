@@ -48,6 +48,7 @@
 * [valgrind——内存检测](tiao-shi/valgrind.md)
 * [strace——追踪系统调用](tiao-shi/strace-zhui-zong-xi-tong-tiao-yong.md)
 * [coredump——崩溃快照](tiao-shi/coredump-beng-kui-kuai-zhao.md)
+* [log工具](tiao-shi/log-gong-ju.md)
 
 ## 性能分析
 
