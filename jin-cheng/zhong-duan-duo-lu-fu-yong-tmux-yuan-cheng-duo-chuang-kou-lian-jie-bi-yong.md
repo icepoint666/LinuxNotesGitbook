@@ -1,4 +1,4 @@
-# 终端多路复用\(tmux\)——远程多窗口连接必用
+# tmux\(终端多路复用\)——远程多窗口连接必用
 
 **终端多路复用：terminal multiplexer: tmux**
 
@@ -23,7 +23,12 @@ $ tmux new -t foobar # 开启一个新的session，并命名
 
 这让您操作远端设备时的工作流大大改善，避免了 `nohup` 和其他类似技巧的使用。
 
-`tmux` 的快捷键需要我们掌握，它们都是类似 `<C-b> x` 这样的组合，即需要先按下`Ctrl+b`，松开后再按下 `x`。`tmux` 中对象的继承结构如下：
+`tmux` 的快捷键需要我们掌握，它们都是类似 `<C-b> x` 这样的组合，即需要先按下`Ctrl+b`，松开后再按下 `x`。
+
+* **一些通用命令**
+
+  * list: `tmux list-sessions`,`tmux list-windows`,`tmux list-panes`
+  * kill:`tmux kill-session -t 3`, 类似kill-server, kill-session, kill-window
 
 * **会话（一般就一个会话就够了）** - 每个会话都是一个独立的工作区，其中包含一个或多个窗口
   * `tmux` 开始一个新的会话, 使用默认名字：0

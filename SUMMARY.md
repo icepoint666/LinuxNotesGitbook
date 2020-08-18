@@ -33,7 +33,7 @@
 ## 进程
 
 * [Linux通过signal机制控制进程——kill命令，bp命令，jobs命令](jin-cheng/linux-tong-guo-signal-ji-zhi-kong-zhi-jin-cheng-kill-ming-ling-bp-ming-ling-jobs-ming-ling.md)
-* [终端多路复用\(tmux\)——远程多窗口连接必用](jin-cheng/zhong-duan-duo-lu-fu-yong-tmux-yuan-cheng-duo-chuang-kou-lian-jie-bi-yong.md)
+* [tmux\(终端多路复用\)——远程多窗口连接必用](jin-cheng/zhong-duan-duo-lu-fu-yong-tmux-yuan-cheng-duo-chuang-kou-lian-jie-bi-yong.md)
 
 ## 调试
 
