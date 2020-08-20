@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Initial page](README.md)
+* [Linux操作](README.md)
 
 ## shell
 
@@ -8,6 +8,7 @@
 * [shell脚本](shell/shell-jiao-ben.md)
 * [shell、bash 和 zsh 等词的区分](shell/shellbash-he-zsh-deng-ci-de-qu-fen.md)
 * [使用管道进行数据整理（管道/过滤器模式）](shell/shi-yong-guan-dao-jin-hang-shu-ju-zheng-li-guan-dao-guo-lv-qi-mo-shi.md)
+* [xargs命令——配合管道利器](shell/xargs-ming-ling-pei-he-guan-dao-li-qi.md)
 * [配置文件——.bashrc等，ln命令](shell/pei-zhi-wen-jian-.bashrc-deng-ln-ming-ling.md)
 
 ## Tools
@@ -35,6 +36,7 @@
 
 * [Linux通过signal机制控制进程——kill命令，bp命令，jobs命令](jin-cheng/linux-tong-guo-signal-ji-zhi-kong-zhi-jin-cheng-kill-ming-ling-bp-ming-ling-jobs-ming-ling.md)
 * [tmux\(终端多路复用\)——远程多窗口连接必用](jin-cheng/zhong-duan-duo-lu-fu-yong-tmux-yuan-cheng-duo-chuang-kou-lian-jie-bi-yong.md)
+* [pstree, ps](jin-cheng/pstree-ps.md)
 
 ## 调试
 
@@ -59,4 +61,16 @@
 * [perf命令——事件分析](xing-neng-fen-xi/perf-ming-ling-shi-jian-fen-xi.md)
 * [火焰图——可视化perf](xing-neng-fen-xi/huo-yan-tu-han-shu-tiao-yong-hao-shi.md)
 * [资源监控](xing-neng-fen-xi/zi-yuan-jian-kong.md)
+
+## 网络
+
+* [Untitled](wang-luo/untitled.md)
+
+## 用户
+
+* [用户相关命令](yong-hu/yong-hu-xiang-guan-ming-ling.md)
+
+## 硬件
+
+* [硬件相关命令](ying-jian/ying-jian-xiang-guan-ming-ling.md)
 

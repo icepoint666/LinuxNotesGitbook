@@ -4,6 +4,10 @@
 
 #### 本质也算是一样的东西
 
+shell编程100例：[https://zhuanlan.zhihu.com/p/84529054](https://zhuanlan.zhihu.com/p/84529054) （用于参考）
+
+shell脚本面试问题70个：[https://zhuanlan.zhihu.com/p/83711089](https://zhuanlan.zhihu.com/p/83711089)（用于参考）
+
 ### 1.空格是command
 
 #### 给variable赋值的时候不要在中间加入空格，会认为空格是一个命令
