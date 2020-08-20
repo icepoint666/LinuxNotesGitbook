@@ -23,7 +23,7 @@ $ echo 'value is $foo'
 value is $foo
 ```
 
-### 3.执行简单的脚本，向脚本传递参数
+### 3.向脚本传递参数
 
 ```bash
 mcd () {
@@ -114,6 +114,10 @@ done
 
 shell知道去用python解释器而不是shell命令来运行这段脚本，是因为脚本的开头第一行的[shebang](https://en.wikipedia.org/wiki/Shebang_%28Unix%29)。
 
+**指明当前脚本运行的解释器路径**
+
+\#!/bin/sh是指此脚本使用/bin/sh来解释执行，\#!是特殊的表示符，其后面根的是此解释此脚本的shell的路径。脚本的内容是由解释器解释的，我们可以用各种各样的解释器来写对应的脚本。 比如说/bin/csh脚本，/bin/perl脚本，/bin/awk脚本，/bin/sed脚本，甚至/bin/echo等等。
+
 ```bash
 #!/usr/local/bin/python
 import sys
@@ -125,5 +129,9 @@ for arg in reversed(sys.argv[1:]):
 
 可能可以用python命令的时候本身已经link了很多个bin文件，它可以指定用哪个bin文件来执行这个脚本
 
+**\#!/bin/sh与\#!/bin/bash区别**
 
+GNU/Linux操作系统中的/bin/sh本是bash \(Bourne-Again Shell\) 的符号链接， 但鉴于bash过于复杂，有人把bash从NetBSD移植到Linux并更名为dash \(Debian Almquist Shell\)， 并建议将/bin/sh指向它，以获得更快的脚本执行速度。Dash Shell 比Bash Shell小的多，符合POSIX标准 Ubuntu继承了Debian，所以从Ubuntu 6.10开始默认是Dash Shell。
+
+应该说，/bin/sh与/bin/bash虽然大体上没什么区别，但仍存在不同的标准。 标记为\#!/bin/sh的脚本不应使用任何POSIX没有规定的特性 \(如let等命令, 但\#!/bin/bash可以\)
 
