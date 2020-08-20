@@ -6,6 +6,7 @@
 
 * [基本shell命令](shell/ji-ben-shell-ming-ling.md)
 * [shell脚本](shell/shell-jiao-ben.md)
+* [shell、bash 和 zsh 等词的区分](shell/shellbash-he-zsh-deng-ci-de-qu-fen.md)
 * [使用管道进行数据整理（管道/过滤器模式）](shell/shi-yong-guan-dao-jin-hang-shu-ju-zheng-li-guan-dao-guo-lv-qi-mo-shi.md)
 * [配置文件——.bashrc等，ln命令](shell/pei-zhi-wen-jian-.bashrc-deng-ln-ming-ling.md)
 
