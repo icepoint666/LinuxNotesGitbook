@@ -43,7 +43,7 @@ $ passwd username
 **3. 删除用户 userdel** 
 
 ```bash
-$ sudo userdel -r []
+$ sudo userdel -r [用户名]
 ```
 
 ### **用户相关命令**
