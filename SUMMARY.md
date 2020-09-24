@@ -14,6 +14,7 @@
 ## Tools
 
 * [Useful Tools](tools/useful-tools.md)
+* [guake命令界面](tools/guake-ming-ling-jie-mian.md)
 * [journalctl日志工具](tools/journalctl-ri-zhi-gong-ju.md)
 * [ctrl+r快速搜索history里命令关键字段](tools/ctrl+r-kuai-su-sou-suo-history-li-ming-ling-guan-jian-zi-duan.md)
 
@@ -71,6 +72,7 @@
 ## 用户
 
 * [用户相关命令](yong-hu/yong-hu-xiang-guan-ming-ling.md)
+* [文件权限与文件所有](yong-hu/wen-jian-quan-xian-yu-wen-jian-suo-you.md)
 
 ## 硬件
 
