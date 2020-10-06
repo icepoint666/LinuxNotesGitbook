@@ -54,6 +54,10 @@
 * [coredump——崩溃快照](tiao-shi/coredump-beng-kui-kuai-zhao.md)
 * [log工具](tiao-shi/log-gong-ju.md)
 
+## c++编译运行
+
+* [g++基本使用](c++-bian-yi-yun-hang/g++-ji-ben-shi-yong.md)
+
 ## 性能分析
 
 * [Linux性能观察工具一览](xing-neng-fen-xi/linux-xing-neng-guan-cha-gong-ju-yi-lan.md)
