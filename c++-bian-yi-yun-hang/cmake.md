@@ -447,7 +447,83 @@ include (CPack)
 2. 设置一些 CPack 相关变量，包括版权信息和版本信息，其中版本信息用了上一节定义的版本号；
 3. 导入 CPack 模块。
 
- 像往常一样构建工程，并执行 `cpack` 命令
+ **像往常一样构建工程，并执行 `cpack` 命令**
+
+* 生成二进制安装包：
+
+```bash
+$ cpack -C CPackConfig.cmake
+```
+
+* 生成源码安装包
+
+```bash
+$ cpack -C CPackSourceConfig.cmake
+```
+
+ 在生成项目后，执行 `cpack -C CPackConfig.cmake` 命令
+
+此时会在该目录下创建 3 个不同格式的二进制包文件：
+
+```bash
+[ehome@xman Demo8]$ ls Demo8-*
+Demo8-1.0.1-Linux.sh  Demo8-1.0.1-Linux.tar.gz  Demo8-1.0.1-Linux.tar.Z
+```
+
+这 3 个二进制包文件所包含的内容是完全相同的。我们可以执行其中一个。此时会出现一个由 CPack 自动生成的交互式安装界面：
+
+```bash
+[ehome@xman Demo8]$ sh Demo8-1.0.1-Linux.sh 
+Demo8 Installer Version: 1.0.1, Copyright (c) Humanity
+This is a self-extracting archive.
+The archive will be extracted to: /home/ehome/Documents/programming/C/power/Demo8
+
+If you want to stop extracting, please press <ctrl-C>.
+The MIT License (MIT)
+
+Copyright (c) 2013 Joseph Pan(http://hahack.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+Do you accept the license? [yN]: 
+y
+By default the Demo8 will be installed in:
+  "/home/ehome/Documents/programming/C/power/Demo8/Demo8-1.0.1-Linux"
+Do you want to include the subdirectory Demo8-1.0.1-Linux?
+Saying no will install in: "/home/ehome/Documents/programming/C/power/Demo8" [Yn]: 
+y
+
+Using target directory: /home/ehome/Documents/programming/C/power/Demo8/Demo8-1.0.1-Linux
+Extracting, please wait...
+
+Unpacking finished successfully
+```
+
+完成后提示安装到了 Demo8-1.0.1-Linux 子目录中，我们可以进去执行该程序：
+
+```bash
+[ehome@xman Demo8]$ ./Demo8-1.0.1-Linux/bin/Demo 5 2
+Now we use our own Math library. 
+5 ^ 2 is 25
+```
+
+ 更详细的用法可以通过 `man 1 cpack` 参考 CPack 的文档
 
 ### CMake支持gdb调试
 
