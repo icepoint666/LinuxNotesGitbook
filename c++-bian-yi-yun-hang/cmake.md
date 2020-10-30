@@ -80,13 +80,14 @@ aux_source_directory(. DIR_SRCS)
 add_executable(Demo ${DIR_SRCS})
 ```
 
-### 使用CMake编译示例（多目录）
+### 使用CMake编译示例（多目录，重点）
 
 **目录结构**
 
 ```bash
 ./Demo3
-    
+    |
+    +--- CMakeLists.txt
     |
     +--- main.cc
     |
@@ -97,5 +98,5 @@ add_executable(Demo ${DIR_SRCS})
           +--- MathFunctions.h
 ```
 
-有两种
+CMakeLists.**txt**
 
