@@ -211,7 +211,96 @@ CMakeFiles  cmake_install.cmake  libMathFunctions.a  Makefile
 
 ### CMake添加环境检查，版本号
 
-环境检查
+**环境检查**
+
+例要使用一个平台相关的特性的时候。在这个例子中，我们检查系统是否自带 pow 函数。如果带有 pow 函数，就使用它；否则使用我们定义的 power 函数。
+
+**依靠CMake的一些内置宏实现**
+
+```bash
+cmake_minimum_required (VERSION 2.8)
+
+project (Demo4)
+
+# 检查系统是否支持 pow 函数
+include (${CMAKE_ROOT}/Modules/CheckFunctionExists.cmake)
+check_function_exists (pow HAVE_POW)
+
+# 加入一个配置头文件，用于处理 CMake 对源码的设置
+configure_file (
+  "${PROJECT_SOURCE_DIR}/config.h.in"
+  "${PROJECT_BINARY_DIR}/config.h"
+  )
+
+# 是否加入 MathFunctions 库
+if (NOT HAVE_POW)
+  include_directories ("${PROJECT_SOURCE_DIR}/math")
+  add_subdirectory (math)
+  set (EXTRA_LIBS ${EXTRA_LIBS} MathFunctions)
+endif (NOT HAVE_POW)
+
+aux_source_directory(. DIR_SRCS)
+
+# 指定生成目标
+add_executable(Demo ${DIR_SRCS})
+target_link_libraries (Demo  ${EXTRA_LIBS})
+```
+
+* **project**的作用： 定义工程名称, 设置几个变量的名字: `PROJECT_NAME, PROJECT_SOURCE_DIR, <PROJECT-NAME>_SOURCE_DIR, PROJECT_BINARY_DIR, <PROJECT-NAME>_BINARY_DIR`
+* **include\_directories**的作用：把当前目录\(CMakeLists.txt所在目录\)下的某个目录加入到包含路径
+
+  使用之后，main.cc调用MainFunctions的时候就不需要再`#include "math/MathFunctions.h"`了
+
+  直接`#include "MathFunctions.h`"即可
+
+* **configure\_file** 命令用于加入一个配置头文件 config.h ，这个文件由 CMake 从 [config.h.in](http://config.h.in/) 生成，通过这样的机制，将可以通过预定义一些参数和变量来控制代码的生成
+* set \(CMAKE\_INCLUDE\_CURRENT\_DIR ON\)  **保证生成的build中的头文件，例如config.h能被根目录include到，所以main.cc才能include到config.h**
+
+**编写 config.h.in 文件,在CMake根目录**
+
+```bash
+// does the platform provide pow function?
+#cmakedefine HAVE_POW
+```
+
+**目录情况**
+
+![](../.gitbook/assets/wu-biao-ti-%20%281%29.png)
+
+**在代码中使用宏和函数，修改main.cc**
+
+```cpp
+#include <stdio.h>
+#include <stdlib.h>
+#include <config.h>
+
+#ifdef HAVE_POW
+  #include <math.h>
+#else
+  #include <MathFunctions.h>
+#endif
+
+int main(int argc, char *argv[])
+{
+    if (argc < 3){
+        printf("Usage: %s base exponent \n", argv[0]);
+        return 1;
+    }
+    double base = atof(argv[1]);
+    int exponent = atoi(argv[2]);
+    
+#ifdef HAVE_POW
+    printf("Now we use the standard library. \n");
+    double result = pow(base, exponent);
+#else
+    printf("Now we use our own Math library. \n");
+    double result = power(base, exponent);
+#endif
+    
+    printf("%g ^ %d is %g\n", base, exponent, result);
+    return 0;
+}
+```
 
 ### CMake安装和测试，生成安装包\(打包\)
 
