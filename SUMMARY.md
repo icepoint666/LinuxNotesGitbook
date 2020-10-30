@@ -54,6 +54,7 @@
   * [变量查看](tiao-shi/gdb-dong-tai-tiao-shi/bian-liang-cha-kan.md)
   * [源码查看](tiao-shi/gdb-dong-tai-tiao-shi/yuan-ma-cha-kan.md)
   * [单步调试](tiao-shi/gdb-dong-tai-tiao-shi/dan-bu-tiao-shi.md)
+  * [多线程调试](tiao-shi/gdb-dong-tai-tiao-shi/duo-xian-cheng-tiao-shi.md)
 * [gprof——性能分析：运行时长和调用](tiao-shi/untitled-1.md)
 * [valgrind——内存检测](tiao-shi/valgrind.md)
 * [strace——追踪系统调用](tiao-shi/strace-zhui-zong-xi-tong-tiao-yong.md)
