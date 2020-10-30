@@ -39,6 +39,13 @@
 * [tmux\(终端多路复用\)——远程多窗口连接必用](jin-cheng/zhong-duan-duo-lu-fu-yong-tmux-yuan-cheng-duo-chuang-kou-lian-jie-bi-yong.md)
 * [pstree, ps](jin-cheng/pstree-ps.md)
 
+## c++编译运行
+
+* [CMake](c++-bian-yi-yun-hang/cmake.md)
+* [CMake教程](c++-bian-yi-yun-hang/cmake-jiao-cheng.md)
+* [g++基本使用](c++-bian-yi-yun-hang/g++-ji-ben-shi-yong.md)
+* [g++链接 静态库 动态库](c++-bian-yi-yun-hang/g++-lian-jie-jing-tai-ku-dong-tai-ku.md)
+
 ## 调试
 
 * [调试器，pdb，pyflakes](tiao-shi/untitled.md)
@@ -53,10 +60,6 @@
 * [strace——追踪系统调用](tiao-shi/strace-zhui-zong-xi-tong-tiao-yong.md)
 * [coredump——崩溃快照](tiao-shi/coredump-beng-kui-kuai-zhao.md)
 * [log工具](tiao-shi/log-gong-ju.md)
-
-## c++编译运行
-
-* [g++基本使用](c++-bian-yi-yun-hang/g++-ji-ben-shi-yong.md)
 
 ## 性能分析
 
