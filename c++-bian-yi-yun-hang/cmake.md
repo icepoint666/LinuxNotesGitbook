@@ -421,16 +421,16 @@ include (CPack)
 **最关键的部分，一般至少要有**
 
 ```bash
-cmake_minimum_required ( VERSION 3.0)
+cmake_minimum_required (VERSION 3.0)
 
-project(hello)
+project(hello)                                  # 给工程起个名字
 
 include_directories(${CMAKE_CURRENT_LIST_DIR}/include)
-
+                                                # 让CMake找到我的头文件
 link_directories(${CMAKE_CURRENT_LIST_DIR}/lib)
-
+                                                # 让CMake找到我的源文件
 aux_source_directory(${CMAKE_CURRENT_LIST_DIR}/src ${hello_src})
-
+                                                # 让CMake找到我的源文件
 add_executable(${PROJECT_NAME} ${hello_src})
 
 target_link_libraries(${PROJECT_NAME} util)
