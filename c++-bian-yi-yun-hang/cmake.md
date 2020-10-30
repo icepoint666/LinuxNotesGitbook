@@ -1,4 +1,4 @@
-# CMake
+# CMake基本使用
 
 **参考链接：**
 
@@ -9,7 +9,9 @@
 
 **主要介绍Linux环境下CMake使用**
 
-### 验证环境是否安装
+* 参考链接：[https://www.hahack.com/codes/cmake/](https://www.hahack.com/codes/cmake/)
+
+### 验证gcc, make, cmake环境是否安装
 
 ```bash
 $ gcc -v
@@ -17,7 +19,7 @@ $ make -v
 $ cmake --help
 ```
 
-### 使用CMake编译示例（单目录）
+### CMake编译示例（单目录）
 
 **1.单个目录下，单个源文件**
 
@@ -80,7 +82,7 @@ aux_source_directory(. DIR_SRCS)
 add_executable(Demo ${DIR_SRCS})
 ```
 
-### 使用CMake编译示例（多目录，重点）
+### CMake编译示例（多目录，重点）
 
 **目录结构**
 
@@ -196,4 +198,29 @@ add_library (MathFunctions ${DIR_LIB_SRCS})
 ```
 
 会自动在build文件夹创建一个math子目录，当调用add\_subdirectory里面的CMakeLists.txt执行的生成的东西会保存在math文件夹中，整体会比较有层次感，与本身项目目录一样，**具有层次感**
+
+**生成目录：**
+
+```bash
+(base) liangyu@dolphin:~/cc/cmakeTest2/build$ ls
+CMakeCache.txt  CMakeFiles  cmake_install.cmake  Demo  Makefile  math
+
+(base) liangyu@dolphin:~/cc/cmakeTest2/build/math$ ls
+CMakeFiles  cmake_install.cmake  libMathFunctions.a  Makefile
+```
+
+### CMake添加环境检查，版本号
+
+环境检查
+
+### CMake安装和测试，生成安装包\(打包\)
+
+* make install 指定安装规则
+* make test 添加测试
+
+### CMake支持gdb调试
+
+### 交互式CMake
+
+详见：[https://www.hahack.com/codes/cmake/\#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9](https://www.hahack.com/codes/cmake/#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9)
 

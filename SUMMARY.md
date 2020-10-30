@@ -41,10 +41,9 @@
 
 ## c++编译运行
 
-* [CMake](c++-bian-yi-yun-hang/cmake.md)
-* [CMake教程](c++-bian-yi-yun-hang/cmake-jiao-cheng.md)
 * [g++基本使用](c++-bian-yi-yun-hang/g++-ji-ben-shi-yong.md)
 * [g++链接 静态库 动态库](c++-bian-yi-yun-hang/g++-lian-jie-jing-tai-ku-dong-tai-ku.md)
+* [CMake基本使用](c++-bian-yi-yun-hang/cmake.md)
 
 ## 调试
 
