@@ -98,5 +98,23 @@ add_executable(Demo ${DIR_SRCS})
           +--- MathFunctions.h
 ```
 
-CMakeLists.**txt**
+**CMakeLists.txt有两种写法**
+
+**写法1：推荐**
+
+```bash
+cmake_minimum_required (VERSION 2.8)
+
+project (Demo3)
+
+aux_source_directory(. DIR_SRCS)
+aux_source_directory(math DIR_MATH)
+add_library(MathFunctions ${DIR_MATH})
+
+add_executable(Demo main.cc)
+target_link_libraries(Demo MathFunctions)
+
+```
+
+a**ux\_sourc**e\_directory
 
