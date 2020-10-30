@@ -98,9 +98,56 @@ add_executable(Demo ${DIR_SRCS})
           +--- MathFunctions.h
 ```
 
+**源码** 
+
+```cpp
+// main.cc
+#include <stdio.h>
+#include <stdlib.h>
+#include "math/MathFunctions.h" //注意：一定是math/MathFunctions.h，代表相对于main.cc的位置，而不是链接库的相对位置
+
+int main(int argc, char *argv[])
+{
+    if (argc < 3){
+        printf("Usage: %s base exponent \n", argv[0]);
+        return 1;
+    }
+    double base = atof(argv[1]);
+    int exponent = atoi(argv[2]);
+    double result = power(base, exponent);
+    printf("%g ^ %d is %g\n", base, exponent, result);
+    return 0;
+}
+
+// math/MathFunctions.cc
+double power(double base, int exponent)
+{
+    int result = base;
+    int i;
+
+    if (exponent == 0) {
+        return 1;
+    }
+
+    for(i = 1; i < exponent; ++i){
+        result = result * base;
+    }
+
+    return result;
+}
+// math/MathFunctions.h
+#ifndef MATHFUNCTIONS_H
+#define MATHFUNCTIONS_H
+
+extern double power(double base, int exponent); //注意是extern
+
+#endif
+
+```
+
 **CMakeLists.txt有两种写法**
 
-**写法1：推荐**
+**写法1：不太推荐**
 
 ```bash
 cmake_minimum_required (VERSION 2.8)
@@ -116,5 +163,37 @@ target_link_libraries(Demo MathFunctions)
 
 ```
 
-a**ux\_sourc**e\_directory
+* **aux\_source\_directory** 相当于把目录用一个变量名表示出来
+* **add\_library** 会把指定目录所有源文件都编译得到目标文件\(静态链接库，LibMathFunctions.a\)，存放在build目录中
+* **target\_link\_libraries** 会把指定的目标链接库，自动在整个build的目录中寻找对应名字的.a，然后静态**链接到可执行文件上**
+
+**这种写法会使得math目录中生成文件都生成到build目录中，如果子目录的内容比较多的话，感觉会比较乱，因为生成的东西都混合在math目录中**
+
+**写法2：推荐，用add\_subdirectory**
+
+```bash
+cmake_minimum_required (VERSION 2.8)
+
+project (Demo3)
+
+aux_source_directory(. DIR_SRCS)
+
+add_subdirectory(math)
+
+add_executable(Demo main.cc)
+target_link_libraries(Demo MathFunctions)
+
+```
+
+* **add\_subdirectory 会自动从指定的目录，也就是到math/目录下执行里面的CMakeLists.txt**
+
+**math目录下的CMakeLists.txt**
+
+```bash
+aux_source_directory(. DIR_LIB_SRCS)
+
+add_library (MathFunctions ${DIR_LIB_SRCS})
+```
+
+会自动在build文件夹创建一个math子目录，当调用add\_subdirectory里面的CMakeLists.txt执行的生成的东西会保存在math文件夹中，整体会比较有层次感，与本身项目目录一样，**具有层次感**
 
