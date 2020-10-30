@@ -222,6 +222,8 @@ cmake_minimum_required (VERSION 2.8)
 
 project (Demo4)
 
+set (CMAKE_INCLUDE_CURRENT_DIR ON)
+
 # 检查系统是否支持 pow 函数
 include (${CMAKE_ROOT}/Modules/CheckFunctionExists.cmake)
 check_function_exists (pow HAVE_POW)
@@ -254,7 +256,7 @@ target_link_libraries (Demo  ${EXTRA_LIBS})
   直接`#include "MathFunctions.h`"即可
 
 * **configure\_file** 命令用于加入一个配置头文件 config.h ，这个文件由 CMake 从 [config.h.in](http://config.h.in/) 生成，通过这样的机制，将可以通过预定义一些参数和变量来控制代码的生成
-* set \(CMAKE\_INCLUDE\_CURRENT\_DIR ON\)  **保证生成的build中的头文件，例如config.h能被根目录include到，所以main.cc才能include到config.h**
+* **set \(CMAKE\_INCLUDE\_CURRENT\_DIR ON\)**  保证生成的build中的头文件，例如config.h能被根目录include到，所以main.cc才能include到config.h
 
 **编写 config.h.in 文件,在CMake根目录**
 
