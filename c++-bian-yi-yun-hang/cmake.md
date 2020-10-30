@@ -311,7 +311,143 @@ int main(int argc, char *argv[])
 
 **定制安装规则**
 
+install主要的含义就是把生成的头文件放到系统/usr/include目录，把库/目标文件放在/usr/bin中
+
+之后执行的时候或者需要动态链接的时候，可以自动从系统目录中寻找
+
+首先先在 math/CMakeLists.txt 文件里添加下面两行：
+
+```bash
+# 指定 MathFunctions 库的安装路径
+install (TARGETS MathFunctions DESTINATION bin)
+install (FILES MathFunctions.h DESTINATION include)
+```
+
+指明 MathFunctions 库的安装路径。之后同样修改根目录的 CMakeLists 文件，在末尾添加下面几行：
+
+```bash
+# 指定安装路径
+install (TARGETS Demo DESTINATION bin)
+install (FILES "${PROJECT_BINARY_DIR}/config.h"
+         DESTINATION include)
+```
+
+* 通过上面的定制，生成的 Demo 文件和 MathFunctions 函数库 libMathFunctions.o 文件将会被复制到 `/usr/local/bin` 中
+* 而 MathFunctions.h 和生成的 config.h 文件则会被复制到 `/usr/local/include` 中
+* 这里的 `/usr/local/` 是默认安装到的根目录，可以通过修改 `CMAKE_INSTALL_PREFIX` 变量的值来指定这些文件应该拷贝到哪个根目录
+
+```bash
+[ehome@xman Demo5]$ sudo make install
+[ 50%] Built target MathFunctions
+[100%] Built target Demo
+Install the project...
+-- Install configuration: ""
+-- Installing: /usr/local/bin/Demo
+-- Installing: /usr/local/include/config.h
+-- Installing: /usr/local/bin/libMathFunctions.a
+-- Up-to-date: /usr/local/include/MathFunctions.h
+[ehome@xman Demo5]$ ls /usr/local/bin
+Demo  libMathFunctions.a
+[ehome@xman Demo5]$ ls /usr/local/include
+config.h  MathFunctions.h
+```
+
 #### 为工程添加测试 <a id="&#x4E3A;&#x5DE5;&#x7A0B;&#x6DFB;&#x52A0;&#x6D4B;&#x8BD5;"></a>
+
+ CMake 提供了一个称为 CTest 的测试工具。我们要做的只是在项目根目录的 CMakeLists 文件中调用一系列的 `add_test` 命令
+
+```text
+# 启用测试
+enable_testing()
+
+# 测试程序是否成功运行
+add_test (test_run Demo 5 2)
+
+# 测试帮助信息是否可以正常提示
+add_test (test_usage Demo)
+set_tests_properties (test_usage
+  PROPERTIES PASS_REGULAR_EXPRESSION "Usage: .* base exponent")
+
+# 测试 5 的平方
+add_test (test_5_2 Demo 5 2)
+
+set_tests_properties (test_5_2
+ PROPERTIES PASS_REGULAR_EXPRESSION "is 25")
+
+# 测试 10 的 5 次方
+add_test (test_10_5 Demo 10 5)
+
+set_tests_properties (test_10_5
+ PROPERTIES PASS_REGULAR_EXPRESSION "is 100000")
+
+# 测试 2 的 10 次方
+add_test (test_2_10 Demo 2 10)
+
+set_tests_properties (test_2_10
+ PROPERTIES PASS_REGULAR_EXPRESSION "is 1024")
+```
+
+ 上面的代码包含了四个测试。第一个测试 `test_run` 用来测试程序是否成功运行并返回 0 值。剩下的三个测试分别用来测试 5 的 平方、10 的 5 次方、2 的 10 次方是否都能得到正确的结果。其中 `PASS_REGULAR_EXPRESSION` 用来测试输出是否包含后面跟着的字符串。
+
+看看测试的结果：
+
+```bash
+[ehome@xman Demo5]$ make test
+Running tests...
+Test project /home/ehome/Documents/programming/C/power/Demo5
+    Start 1: test_run
+1/4 Test #1: test_run .........................   Passed    0.00 sec
+    Start 2: test_5_2
+2/4 Test #2: test_5_2 .........................   Passed    0.00 sec
+    Start 3: test_10_5
+3/4 Test #3: test_10_5 ........................   Passed    0.00 sec
+    Start 4: test_2_10
+4/4 Test #4: test_2_10 ........................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.01 sec
+```
+
+如果要测试更多的输入数据，像上面那样一个个写测试用例未免太繁琐。这时可以通过编写宏来实现：
+
+```bash
+# 定义一个宏，用来简化测试工作
+macro (do_test arg1 arg2 result)
+  add_test (test_${arg1}_${arg2} Demo ${arg1} ${arg2})
+  set_tests_properties (test_${arg1}_${arg2}
+    PROPERTIES PASS_REGULAR_EXPRESSION ${result})
+endmacro (do_test)
+ 
+# 使用该宏进行一系列的数据测试
+do_test (5 2 "is 25")
+do_test (10 5 "is 100000")
+do_test (2 10 "is 1024")
+```
+
+**生成安装包**
+
+CPack是由 CMake 提供的一个工具，专门用于打包
+
+在顶层的 CMakeLists.txt 文件尾部添加下面几行：
+
+```bash
+# 构建一个 CPack 安装包
+include (InstallRequiredSystemLibraries)
+set (CPACK_RESOURCE_FILE_LICENSE
+  "${CMAKE_CURRENT_SOURCE_DIR}/License.txt")
+set (CPACK_PACKAGE_VERSION_MAJOR "${Demo_VERSION_MAJOR}")
+set (CPACK_PACKAGE_VERSION_MINOR "${Demo_VERSION_MINOR}")
+include (CPack)
+```
+
+上面的代码做了以下几个工作：
+
+1. 导入 InstallRequiredSystemLibraries 模块，以便之后导入 CPack 模块；
+2. 设置一些 CPack 相关变量，包括版权信息和版本信息，其中版本信息用了上一节定义的版本号；
+3. 导入 CPack 模块。
+
+ 像往常一样构建工程，并执行 `cpack` 命令
 
 ### CMake支持gdb调试
 
