@@ -418,7 +418,7 @@ set (CPACK_PACKAGE_VERSION_MINOR "${Demo_VERSION_MINOR}")
 include (CPack)
 ```
 
-**最关键的部分，一般至少要有**
+### **一个CMakeLists最关键的部分**
 
 ```bash
 cmake_minimum_required (VERSION 3.0)
@@ -426,15 +426,15 @@ cmake_minimum_required (VERSION 3.0)
 project(hello)                                  # 给工程起个名字
 
 include_directories(${CMAKE_CURRENT_LIST_DIR}/include)
-                                                # 让CMake找到我的头文件
+                                                # 让CMake找到我的头文件 .h
 link_directories(${CMAKE_CURRENT_LIST_DIR}/lib)
-                                                # 让CMake找到我的源文件
+                                                # 让CMake找到我的库文件 .lib
 aux_source_directory(${CMAKE_CURRENT_LIST_DIR}/src ${hello_src})
-                                                # 让CMake找到我的源文件
+                                                # 让CMake找到我的源文件 .cc
 add_executable(${PROJECT_NAME} ${hello_src})
-
+                                                # 告诉CMake我的构建目标
 target_link_libraries(${PROJECT_NAME} util)
-
+                                                # 告诉CMake我要链接哪个库文件
 set(CMAKE_CXX_COMPILER      "clang++" )         # 显示指定使用的C++编译器
 
 set(CMAKE_CXX_FLAGS   "-std=c++11")             # c++11
