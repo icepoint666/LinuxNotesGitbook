@@ -88,3 +88,10 @@
 
 * [硬件相关命令](ying-jian/ying-jian-xiang-guan-ming-ling.md)
 
+## 文件系统
+
+* [Linux各个目录作用](wen-jian-xi-tong/linux-ge-ge-mu-lu-zuo-yong.md)
+* [/etc文件系统](wen-jian-xi-tong/etc-wen-jian-xi-tong.md)
+* [/proc文件系统](wen-jian-xi-tong/proc-wen-jian-xi-tong.md)
+* [/var文件系统](wen-jian-xi-tong/var-wen-jian-xi-tong.md)
+
