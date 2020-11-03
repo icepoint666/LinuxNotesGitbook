@@ -149,7 +149,7 @@ extern double power(double base, int exponent); //注意是extern
 
 **CMakeLists.txt有两种写法**
 
-**写法1：不太推荐**
+**写法1\(不太推荐）:**
 
 ```bash
 cmake_minimum_required (VERSION 2.8)
@@ -167,7 +167,11 @@ target_link_libraries(Demo MathFunctions)
 
 * **aux\_source\_directory** 相当于把目录用一个变量名表示出来
 * **add\_library** 会把指定目录所有源文件都编译得到目标文件\(静态链接库，LibMathFunctions.a\)，存放在build目录中
-* **target\_link\_libraries** 会把指定的目标链接库，自动在整个build的目录中寻找对应名字的.a，然后静态**链接到可执行文件上**
+* **target\_link\_libraries** 会把指定的目标链接库（指定静态链接库/动态链接库的名字），自动在整个build的目录中寻找对应名字的.a（或者.so），然后静态或者动态的**链接到可执行文件上**
+
+**另外还有link\_directories**
+
+* **link\_directories** 来**指定第三方库所在路径, 是一个目录**，就像直接使用gcc/g++来链接的时候一样，要使用-L来指定第三方库所在路径。把该路径添加到第三方库搜索路径中，这样就可以使用相对路径了
 
 **这种写法会使得math目录中生成文件都生成到build目录中，如果子目录的内容比较多的话，感觉会比较乱，因为生成的东西都混合在math目录中**
 

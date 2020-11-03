@@ -51,5 +51,26 @@ $ g++ main.cpp Class.cpp -o a.out
 
 **define \(增加宏定义）**
 
-\*\*\*\*
+编译时增加宏定义-D&lt;标识符&gt;，相当于\#define &lt;标识符&gt;，可以在遇到条件编译时执行
+
+ 搭配gcc编译命令：`gcc -DDEBUG -g -o main.out main.c`
+
+ \(注意-D&lt;标识符&gt;应该紧跟gcc后面，-o等指令前面\)
+
+```cpp
+#include <stdio.h>
+//如果在gcc编译参数中定义了-DDEBUG，就相当于在代码中定义#define DEBUG
+//#define DEBUG 
+int main(int argc, char *argv[])
+{
+#ifdef DEBUG
+    printf("define DEBUG\n");
+#else
+    printf("no define DEBUG\n");
+#endif
+    printf("hello world\n");
+
+    return 0;
+}
+```
 
