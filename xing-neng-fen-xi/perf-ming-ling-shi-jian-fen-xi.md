@@ -1,6 +1,8 @@
 # perf命令——事件分析
 
-perf: Linux自带
+### **perf简介**
+
+**Linux自带**
 
 [`perf`](http://man7.org/linux/man-pages/man1/perf.1.html) 命令将 CPU 的区别进行了抽象，它不会报告时间和内存的消耗，而是报告与您的程序相关的系统事件。
 
@@ -11,7 +13,15 @@ perf: Linux自带
 * `perf record COMMAND ARG1 ARG2` - 记录命令执行的采样信息并将统计数据储存在`perf.data`中；
 * `perf report` - 格式化并打印 `perf.data` 中的数据。
 
-示例：用stress命令来测试perf
+### **perf的原理：中断采样**
+
+每隔一个固定的时间，就在CPU上（每个核上都有）产生一个中断，在中断上看看，当前是哪个pid，哪个函数，然后给对应的pid和函数加一个统计值，这样，我们就知道CPU有百分几的时间在某个pid，或者某个函数上了。这个原理图示如下：
+
+![](../.gitbook/assets/9a1cce72e02b748c02d182d56dc5df40_720w.png)
+
+这是一种采样的模式，我们预期，运行时间越多的函数，被时钟中断击中的机会越大，从而推测，那个函数（或者pid等）的CPU占用率就越高。
+
+### 示例：用stress命令来测试perf
 
 **stress命令**是来模拟系统负载较高时的场景，[**https://www.cnblogs.com/sparkdev/p/10354947.html**](https://www.cnblogs.com/sparkdev/p/10354947.html)\*\*\*\*
 
