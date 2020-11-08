@@ -13,6 +13,7 @@
 
 ## Tools
 
+* [Linux常用工具 \(面试必问\)](tools/linux-chang-yong-gong-ju.md)
 * [Useful Tools](tools/useful-tools.md)
 * [guake命令界面](tools/guake-ming-ling-jie-mian.md)
 * [journalctl日志工具](tools/journalctl-ri-zhi-gong-ju.md)
@@ -78,7 +79,8 @@
 
 ## 网络
 
-* [Untitled](wang-luo/untitled.md)
+* [netstat命令](wang-luo/untitled.md)
+* [tcpdump命令](wang-luo/tcpdump-ming-ling.md)
 
 ## 用户
 
@@ -92,6 +94,7 @@
 ## 文件系统
 
 * [Linux各个目录作用](wen-jian-xi-tong/linux-ge-ge-mu-lu-zuo-yong.md)
+* [lsof命令](wen-jian-xi-tong/lsof-ming-ling.md)
 * [/etc文件系统](wen-jian-xi-tong/etc-wen-jian-xi-tong.md)
 * [/proc文件系统](wen-jian-xi-tong/proc-wen-jian-xi-tong.md)
 * [/var文件系统](wen-jian-xi-tong/var-wen-jian-xi-tong.md)

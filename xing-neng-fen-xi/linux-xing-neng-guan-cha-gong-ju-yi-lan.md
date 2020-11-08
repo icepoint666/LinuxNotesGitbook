@@ -82,5 +82,34 @@ procs -----------memory----------- ---swap-- -----io---- -system-- ------cpu----
 
 * 显示ID为1的CPU信息：mpstat -P 1 1（间隔为1s）
 
-\*\*\*\*
+### **IO监控命令**
+
+**iotop**
+
+**iotop命令**是一个用来监视磁盘I/O使用状况的[top](http://man.linuxde.net/top)类工具
+
+**优点：可以统计到每个进程是如何使用IO的**（ [iostat](http://man.linuxde.net/iostat)，nmon等大多数是只能统计到每个设备的读写情况）
+
+#### 选项
+
+```text
+-o：只显示有io操作的进程
+-b：批量显示，无交互
+-d SEC：间隔SEC秒显示一次。
+-p PID：监控的进程pid（重要！！）
+-u USER：监控的进程用户。
+```
+
+**示例：**
+
+```text
+$ iotop -p 28123
+Total DISK READ :       0.00 B/s | Total DISK WRITE :       0.00 B/s
+Actual DISK READ:       0.00 B/s | Actual DISK WRITE:       0.00 B/s
+  TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN     IO>    COMMAND
+28123 be/4  uu         0.00 B/s    0.00 B/s  ?unavailable?  python train.py
+
+```
+
+
 
