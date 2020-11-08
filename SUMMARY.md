@@ -66,6 +66,7 @@
 
 * [Linux性能观察工具一览](xing-neng-fen-xi/linux-xing-neng-guan-cha-gong-ju-yi-lan.md)
 * [time命令——计时](xing-neng-fen-xi/untitled.md)
+* [free命令——内存，缓存，swap虚拟内存](xing-neng-fen-xi/free-ming-ling-nei-cun-huan-cun-swap-xu-ni-nei-cun.md)
 * [CPU性能分析](xing-neng-fen-xi/cpu-xing-neng-fen-xi/README.md)
   * [CPU相关性能排查，优化](xing-neng-fen-xi/cpu-xing-neng-fen-xi/cpu-xiang-guan-xing-neng-pai-cha-you-hua.md)
 * [内存性能分析](xing-neng-fen-xi/nei-cun-xing-neng-fen-xi.md)
