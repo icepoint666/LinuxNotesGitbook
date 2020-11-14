@@ -73,5 +73,24 @@ ffffffffff600000       4 --x-- 0000000000000000 000:00000   [ anon ]
 * 00007f20b0851000开始有大量的.so链接库表示**加载的动态库**
 * 00007ffd4dcdd000表示**\[ stack \]进程栈空间**，只有164kb
 * ffffffffff600000表示结束标记
-* 但是没有看到**\[ heap \]进程堆空间？**
+
+**但是为什么没有看到\[ heap \]进程堆空间？**
+
+**只有在-X命令下可以看到**
+
+```bash
+$ pmap -X 32931 #略去了一些列
+32931:   /home/alkeybew/anaconda3/envs/Torch/bin/python /home/alkeybew/anaconda3/envs/Torch/bin/visdom -port 8002 --hostname localhost
+         Address Perm   Offset Device     Inode    Size   Rss  Pss  Mapping
+    55fa72c05000 r--p 00000000  08:20 122421412     380     0    0  python3.8
+    55fa72c64000 r-xp 0005f000  08:20 122421412    1988   556  556  python3.8
+    55fa72e55000 r--p 00250000  08:20 122421412     920    52   52  python3.8
+    55fa72f3c000 r--p 00336000  08:20 122421412      20     8    8  python3.8
+    55fa72f41000 rw-p 0033b000  08:20 122421412     224   116  116  python3.8
+    55fa72f79000 rw-p 00000000  00:00         0     128   124  124 
+    55fa73ce9000 rw-p 00000000  00:00         0   43916  3044 3044  [heap]
+    7f383f769000 rw-p 00000000  00:00         0    2048    52   52  
+    7f383f9a8000 rw-p 00000000  00:00         0    2560   312  312   
+    7f383fc28000 r--p 00000000  08:20 122421364       8     0    0  _csv.cpython-38-x86_64-linux-gnu.so
+```
 
