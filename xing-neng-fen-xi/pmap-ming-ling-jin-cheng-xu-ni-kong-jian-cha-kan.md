@@ -16,7 +16,7 @@
   * Limit results to the given range to low and high address range.  Notice that the low and high arguments are single string separated with comma.
 
 ```bash
-$ pmap -d 45564 # 查看45564进程的虚拟内存信息
+$ pmap -d 45564 # 查看45564进程的虚拟内存信息， -d可以包含设备信息
 695:   python train_DAN.py --arch DAN4 --fix DAN4 --batch_size 4 --group 3
 Address           Kbytes Mode  Offset           Device    Mapping
 0000000200000000    2048 ----- 0000000000000000 000:00000   [ anon ]
@@ -93,4 +93,8 @@ $ pmap -X 32931 #略去了一些列
     7f383f9a8000 rw-p 00000000  00:00         0    2560   312  312   
     7f383fc28000 r--p 00000000  08:20 122421364       8     0    0  _csv.cpython-38-x86_64-linux-gnu.so
 ```
+
+* heap区域：在代码段的上方
+
+注意：同一个机器**上不同进程的虚拟地址**是**可以相同的**，例如python的都是从0000000000200000开始。因为**进程虚拟空间是私有的**，但是**映射的物理地址**如果不是shared地址的话，就**必然不可能相同**的
 
