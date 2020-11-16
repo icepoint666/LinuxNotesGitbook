@@ -62,6 +62,7 @@
 * [strace——追踪系统调用](tiao-shi/strace-zhui-zong-xi-tong-tiao-yong.md)
 * [coredump——崩溃快照](tiao-shi/coredump-beng-kui-kuai-zhao.md)
 * [log工具](tiao-shi/log-gong-ju.md)
+* [windows的visual studio检测内存泄漏](tiao-shi/windows-de-visual-studio-jian-ce-nei-cun-xie-lou.md)
 
 ## 性能分析
 
