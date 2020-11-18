@@ -5,6 +5,7 @@
 ## shell
 
 * [基本shell命令](shell/ji-ben-shell-ming-ling.md)
+* [Linux命令的本质是什么——type,which](shell/linux-ming-ling-de-ben-zhi-shi-shen-me-typewhich.md)
 * [shell脚本](shell/shell-jiao-ben.md)
 * [shell、bash 和 zsh 等词的区分](shell/shellbash-he-zsh-deng-ci-de-qu-fen.md)
 * [使用管道进行数据整理（管道/过滤器模式）](shell/shi-yong-guan-dao-jin-hang-shu-ju-zheng-li-guan-dao-guo-lv-qi-mo-shi.md)
@@ -96,6 +97,7 @@
 
 * [用户相关命令](yong-hu/yong-hu-xiang-guan-ming-ling.md)
 * [文件权限与文件所有](yong-hu/wen-jian-quan-xian-yu-wen-jian-suo-you.md)
+* [su与sudo的区别](yong-hu/su-yu-sudo-de-qu-bie.md)
 
 ## 硬件
 
