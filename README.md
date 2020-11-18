@@ -12,5 +12,5 @@ Linux相对于Unix的专属编程特性
 * clone\(\)系统调用
 * /proc文件系统
 
-Linux系统编程手册：[http://reader.epubee.com/books/mobile/74/743a5c8ceb564ed6bcb7799fdc1b4603/](http://reader.epubee.com/books/mobile/74/743a5c8ceb564ed6bcb7799fdc1b4603/)
+**Linux系统编程手册：**[http://reader.epubee.com/books/mobile/74/743a5c8ceb564ed6bcb7799fdc1b4603/](http://reader.epubee.com/books/mobile/74/743a5c8ceb564ed6bcb7799fdc1b4603/)
 
