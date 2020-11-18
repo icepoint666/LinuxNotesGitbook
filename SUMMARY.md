@@ -97,7 +97,7 @@
 
 * [用户相关命令](yong-hu/yong-hu-xiang-guan-ming-ling.md)
 * [文件权限与文件所有](yong-hu/wen-jian-quan-xian-yu-wen-jian-suo-you.md)
-* [su与sudo的区别](yong-hu/su-yu-sudo-de-qu-bie.md)
+* [更改身份：su与sudo的区别](yong-hu/su-yu-sudo-de-qu-bie.md)
 
 ## 硬件
 
