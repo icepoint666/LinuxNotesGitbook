@@ -187,3 +187,16 @@ cat demo.txt | awk 'NR==2{print $3}' > demo2.txt
 ps -aux | sort -k5nr | awk 'BEGIN{print "PID VSZ"}{print $2, $5}' | awk 'NR<3'
 ```
 
+4.统计内存使用
+
+```bash
+#! /bin/bash
+# author:xiaolan
+sum=0
+for mem in `ps aux |awk '{print $6}' |grep -v 'RSS' `
+do
+    sum=$[$sum+$mem]
+done
+echo "The total memory is $sum""k"
+```
+
