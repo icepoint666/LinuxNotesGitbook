@@ -43,18 +43,9 @@ echo 'my name is lanlan'| awk '{print $3}'
 awk -F ':' '{ print $1 }' /etc/passwd
 ```
 
-**3 变量**
+**变量**
 
-上面我们说了，可以使用符号 “3代表第一个字段，第二个字段，第三个字段¨G57G为了方便，我们直接使用/etc/passwd文件进行操作，¨G58G∗∗3变量∗∗上面我们说了，可以使用符号“+” 数字的方式表示第几个字段，其实还有一些变量可以直接表示相应的字段。比如 “$NFb” 表示最后一个字段
-
-```text
-echo 'my name is lanlan'| awk '{print $NF}'
-awk -F ':' '{print NR ") " $1}' demo.txtshe
-```
-
-这里出现了双引号，表示原样输出
-
-其他常用的内置变量
+常用的内置变量
 
 * FILENAME：当前文件名
 * FS：字段分隔符，默认是空格和制表符。

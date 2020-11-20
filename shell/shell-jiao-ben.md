@@ -158,3 +158,32 @@ exit 0
 
 **这句语句告诉bash如果任何语句的执行结果不是true则应该退出**。 这样的好处是防止错误像滚雪球般变大导致一个致命的错误，而这些错误本应该在之前就被处理掉。如果要增加可读性，可以使用set -o errexit，它的作用与set -e相同。
 
+### 0.shell脚本实战样例
+
+**1.批量修改文件名（find, mv, &gt;）**
+
+```bash
+#!/bin/bash
+##查找txt文件
+find /123 -type f -name "*.txt" > /tmp/txt.list
+##批量修改文件名
+for f in `cat /tmp/txt.list`
+do
+    mv $f $f.temp
+done
+```
+
+**2.处理文本**
+
+请将当前目录中demo.txt**第二行第三列**数据**输出到**demo2.txt中
+
+```bash
+cat demo.txt | awk 'NR==2{print $3}' > demo2.txt 
+```
+
+3.**查看占用内存最大的进程的PID和VSZ**
+
+```bash
+ps -aux | sort -k5nr | awk 'BEGIN{print "PID VSZ"}{print $2, $5}' | awk 'NR<3'
+```
+
