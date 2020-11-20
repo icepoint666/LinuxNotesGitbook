@@ -187,7 +187,7 @@ cat demo.txt | awk 'NR==2{print $3}' > demo2.txt
 ps -aux | sort -k5nr | awk 'BEGIN{print "PID VSZ"}{print $2, $5}' | awk 'NR<3'
 ```
 
-4.统计内存使用
+**4.统计内存使用**
 
 ```bash
 #! /bin/bash
@@ -198,5 +198,11 @@ do
     sum=$[$sum+$mem]
 done
 echo "The total memory is $sum""k"
+```
+
+**5.计算本地用户数**
+
+```bash
+$ cat /etc/passwd | wc -l
 ```
 
