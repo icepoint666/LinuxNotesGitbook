@@ -1,4 +1,4 @@
-# Linux常用最强工具 \(面试必问\)
+# Linux常用最强命令/工具 \(面试必问\)
 
 \*\*\*\*[**https://linuxtools-rst.readthedocs.io/zh\_CN/latest/tool/**](https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/)\*\*\*\*
 

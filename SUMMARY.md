@@ -14,7 +14,7 @@
 
 ## Tools
 
-* [Linux常用最强工具 \(面试必问\)](tools/linux-chang-yong-gong-ju.md)
+* [Linux常用最强命令/工具 \(面试必问\)](tools/linux-chang-yong-gong-ju.md)
 * [Useful Tools](tools/useful-tools.md)
 * [guake命令界面](tools/guake-ming-ling-jie-mian.md)
 * [journalctl日志工具](tools/journalctl-ri-zhi-gong-ju.md)
@@ -90,6 +90,7 @@
 
 ## 网络
 
+* [sysctl命令](wang-luo/sysctl-ming-ling.md)
 * [netstat命令](wang-luo/untitled.md)
 * [tcpdump命令](wang-luo/tcpdump-ming-ling.md)
 
