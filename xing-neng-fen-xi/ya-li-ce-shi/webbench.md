@@ -17,7 +17,7 @@ $ make
 ```bash
 $ ./webbench -c 1000 -t 50 http://125.216.241.205:8080/ 
 
--f	--force	             不需要等待服务器响应
+-f	--force	  不需要等待服务器响应
 -r	--reload	发送重新加载请求
 -t	--time   	运行多长时间，单位：秒"
 -p	--proxy server:port	使用代理服务器来发送请求
