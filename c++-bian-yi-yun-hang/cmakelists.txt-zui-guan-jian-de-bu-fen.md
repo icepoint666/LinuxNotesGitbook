@@ -66,5 +66,12 @@ target_link_libraries(<target> [item1] [item2] [...]
 
 * 上述指令中的&lt;target&gt;是指通过add\_executable\(\)和add\_library\(\)指令生成已经创建的目标文件。
 * \[item\]表示库文件没有后缀的名字。
+
+**target link 的顺序很重要**，如果hp\_lib中需要依赖timer\_lib，就应该把hp\_lib放在timer\_lib的前面，链接是一个**有向图的过程**
+
+```text
+target_link_libraries(main hp_lib timer_lib epoll_lib) 
+```
+
 * **默认情况下，库依赖项是传递的**。当这个目标链接到另一个目标时，链接到这个目标的库也会出现在另一个目标的连接线上。这个传递的接口存储在interface\_link\_libraries的目标属性中，可以通过设置该属性直接重写传递接口。
 
