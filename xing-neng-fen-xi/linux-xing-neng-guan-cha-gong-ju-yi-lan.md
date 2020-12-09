@@ -50,7 +50,7 @@ procs -----------memory----------- ---swap-- -----io---- -system-- ------cpu----
 
 **pidstat**
 
-* PID：进程ID
+* PID：进程ID **\(pidstat -p 34501\)**
 
   %usr：进程在用户空间占用cpu的百分比
 
