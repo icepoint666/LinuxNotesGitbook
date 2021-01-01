@@ -22,3 +22,11 @@ $ ps -a                  # 查看用户进程
 $ ps                     # 查看当前窗口tty进程
 ```
 
+**查看进程启动及运行时间**
+
+```text
+$ ps -eo lstart                        # 启动时间
+$ ps -eo etime                         # 运行多长时间
+$ ps -eo pid,lstart,etime | grep 5176  # 查看某个进程的pid，启动时间，运行时间
+```
+
