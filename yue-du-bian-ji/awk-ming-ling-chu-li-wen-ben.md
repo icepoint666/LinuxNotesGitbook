@@ -26,12 +26,12 @@ echo 'my name is lanlan' | awk '{print $0}'
 # my name is lanlan
 ```
 
-* 上面代码中，print $0代表当前征行，所以执行结果就是把每一行原样打印出来
+* 上面代码中，print $0代表当前整行，所以执行结果就是把每一行原样打印出来
 
 awk根据**空格和制表符**，将每一行分成若干段，依次为
 
 ```bash
-echo 'my name is lanlan'| awk '{print $3}'
+echo 'my name is lanlan'| awk '{print $4}'
 # lanlan
 ```
 
