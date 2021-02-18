@@ -12,7 +12,7 @@ awk是一个强大的文本分析工具，相对于grep的查找，sed的编辑�
 
 ```bash
 # 格式：awk 做什么 文件
-awk '{print $0' lan.txt
+awk '{print $0}' lan.txt
 ```
 
 * 上面lan.txt是awk需要处理的文本文件。
