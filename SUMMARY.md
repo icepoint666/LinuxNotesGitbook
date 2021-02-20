@@ -19,6 +19,7 @@
 * [guake命令界面](tools/guake-ming-ling-jie-mian.md)
 * [journalctl日志工具](tools/journalctl-ri-zhi-gong-ju.md)
 * [ctrl+r快速搜索history里命令关键字段](tools/ctrl+r-kuai-su-sou-suo-history-li-ming-ling-guan-jian-zi-duan.md)
+* [安装mysql](tools/an-zhuang-mysql.md)
 
 ## 查找
 
