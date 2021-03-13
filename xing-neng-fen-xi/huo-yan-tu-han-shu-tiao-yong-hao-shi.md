@@ -1,5 +1,9 @@
 # 火焰图——可视化perf
 
+### **perf火焰图使用！！**
+
+\*\*\*\*[**http://senlinzhan.github.io/2018/03/18/perf/**](http://senlinzhan.github.io/2018/03/18/perf/)\*\*\*\*
+
 详细学习连接：[https://zhuanlan.zhihu.com/p/147875569](https://zhuanlan.zhihu.com/p/147875569)
 
 对于采样分析器来说，常见的显示 CPU 分析数据的形式是 [火焰图](http://www.brendangregg.com/flamegraphs.html)，火焰图会在 Y 轴显示函数调用关系，并在 X 轴显示其耗时的比例。火焰图同时还是可交互的，您可以深入程序的某一具体部分，并查看其栈追踪

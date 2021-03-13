@@ -1,5 +1,9 @@
 # perf命令——事件分析
 
+### **perf火焰图使用！！**
+
+\*\*\*\*[**http://senlinzhan.github.io/2018/03/18/perf/**](http://senlinzhan.github.io/2018/03/18/perf/)\*\*\*\*
+
 ### **perf简介**
 
 **Linux自带**
