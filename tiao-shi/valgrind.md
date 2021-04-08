@@ -27,9 +27,9 @@ valgrind不是linux的原生工具，需要自行安装。valgrind自身包含�
 $ sudo apt install valgrind
 ```
 
-valgrind下载：[**https://www.valgrind.org/downloads/valgrind-3.12.0.tar.bz2valgrind**](https://www.valgrind.org/downloads/valgrind-3.12.0.tar.bz2valgrind)\*\*\*\*
+valgrind下载：[**https://www.valgrind.org/downloads/valgrind-3.12.0.tar.bz2**](https://www.valgrind.org/downloads/valgrind-3.12.0.tar.bz2valgrind)\*\*\*\*
 
-安装：
+valgrind安装：
 
 ```bash
 $ tar -jxvf valgrind-3.12.0.tar.bz2
